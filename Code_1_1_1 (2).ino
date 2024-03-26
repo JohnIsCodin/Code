@@ -151,7 +151,7 @@ void loop() {
 
 //Display
 void display1(void) {
-  if (i_V_bu1_4 == 1) {
+  if (i_V_bu1 == 1) {
     for (int i = 9; i >= 0; i--) {
       sevseg.setNumber(i);
       delay(1500);
@@ -162,7 +162,7 @@ void display1(void) {
 }
 
 void display2(void) {
-  if (i_V_bu2_3 == 1) {
+  if (i_V_bu2 == 1) {
     for (int i = 9; i >= 0; i--) {
       sevseg.setNumber(i);
       delay(1500);
