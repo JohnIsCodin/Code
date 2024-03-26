@@ -118,18 +118,17 @@ void loop() {
   }
   else if (state == 2) {
     fct();
+    adv_green_2_3();
     digitalWrite(green2, HIGH);
     digitalWrite(green3, HIGH);
     digitalWrite(red1, HIGH);
     digitalWrite(red4, HIGH);
-    display();
+    display2();
     delay(z);
     fct();
     delay(z);
     digitalWrite(green2, LOW);
     digitalWrite(green3, LOW);
-    display();
-    
     state += 1;
   }
   else if (state == 3) {
@@ -206,6 +205,43 @@ void adv_green_1_4(void){
   delay(1000);
   }
   j_V_Induct_1 = 0;
+}
+
+void adv_green_2_3(void){
+  if (j_V_Induct_2 == 1){
+  digitalWrite(green1,  LOW);
+  digitalWrite(green4, LOW);
+  delay(500);
+
+  digitalWrite(green1, HIGH);
+  digitalWrite(green4, HIGH);
+  delay(1000);
+
+  digitalWrite(green1,  LOW);
+  digitalWrite(green4, LOW);
+  delay(500);
+
+  digitalWrite(green1, HIGH);
+  digitalWrite(green4, HIGH);
+  delay(1000);
+
+  digitalWrite(green1,  LOW);
+  digitalWrite(green4, LOW);
+  delay(500);
+
+  digitalWrite(green1, HIGH);
+  digitalWrite(green4, HIGH);
+  delay(1000);
+
+  digitalWrite(green1,  LOW);
+  digitalWrite(green4, LOW);
+  delay(500);
+
+  digitalWrite(green1, HIGH);
+  digitalWrite(green4, HIGH);
+  delay(1000);
+  }
+  j_V_Induct_2 = 0;
 }
 
 // Master Function
