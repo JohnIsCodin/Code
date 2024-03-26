@@ -46,8 +46,10 @@ int V_red; // Red Light Signal Vector (Pin: A4)
 int i_V_bu1 = 0;
 int i_V_bu2 = 0;
 int j_V_red_1 = 0;
-int j_V_Induct_1 = 0;
-int j_V_Induct_2 = 0;
+int j_V_Induct_A_1_4 = 0;
+int j_V_Induct_A_2_3 = 0;
+int j_V_Induct_B_1_4 = 0;
+int j_V_Induct_B_2_3 = 0;
 
 //Traffic State
 int state = 0;
@@ -149,29 +151,29 @@ void loop() {
 
 //Display
 void display1(void) {
-  if (i_V_bu1 == 1) {
+  if (i_V_bu1_4 == 1) {
     for (int i = 9; i >= 0; i--) {
       sevseg.setNumber(i);
       delay(1500);
       sevseg.refreshDisplay();
     }
   }
-  i_V_bu1 = 0;
+  i_V_bu1_4 = 0;
 }
 
 void display2(void) {
-  if (i_V_bu2 == 1) {
+  if (i_V_bu2_3 == 1) {
     for (int i = 9; i >= 0; i--) {
       sevseg.setNumber(i);
       delay(1500);
       sevseg.refreshDisplay();
     }
   }
-  i_V_bu2 = 0;
+  i_V_bu2_3 = 0;
 }
 
 void adv_green_1_4(void){
-  if (j_V_Induct_1 == 1){
+  if ( j_V_Induct_B_1_4 == 1){
   digitalWrite(green1,  LOW);
   digitalWrite(green4, LOW);
   delay(500);
@@ -204,11 +206,11 @@ void adv_green_1_4(void){
   digitalWrite(green4, HIGH);
   delay(1000);
   }
-  j_V_Induct_1 = 0;
+  j_V_Induct_B_1_4 = 0;
 }
 
 void adv_green_2_3(void){
-  if (j_V_Induct_2 == 1){
+  if (j_V_Induct_B_2_3 == 1){
   digitalWrite(green2,  LOW);
   digitalWrite(green3, LOW);
   delay(500);
@@ -241,7 +243,7 @@ void adv_green_2_3(void){
   digitalWrite(green3, HIGH);
   delay(1000);
   }
-  j_V_Induct_2 = 0;
+j_V_Induct_B_2_3 = 0;
 }
 
 // Master Function
@@ -258,13 +260,8 @@ void polling(void) {
   V_bu1 = digitalRead();
   V_bu2 = digitalRead();
   Serial.println(V_bu1);
-  V_Induct_1A = analogRead();
-  V_Induct_2A = analogRead();
-  V_Induct_2B = analogRead();
-  V_Induct_3A = analogRead();
-  V_Induct_3B = analogRead();
-  V_Induct_4A = analogRead();
-  V_Induct_4B = analogRead();
+  V_Induct_1 = analogRead();
+  V_Induct_2 = analogRead();
   //Additional
 }
 
@@ -279,17 +276,11 @@ void priority(void) {
   }else if (V_bu2 == 1) {
     i_V_bu2 = 1;
 
-  }else if (V_Induct_1A == 1 || V_Induct_4A == 1 ) {
+  }else if (V_Induct_1 == 1) {
     j_V_Induct_1 = 1;
     
-  }else if (V_Induct_1B == 1 || V_Induct_4B == 1 ) {
-    j_V_Induct_1 = 1;
-
-  }else if (V_Induct_2A == 1 || V_Induct_3A == 1 ) {
-    j_V_Induct_1 = 1;
-
-  }else if (V_Induct_2B == 1 || V_Induct_3B == 1 ) {
-    j_V_Induct_1 = 1;
+  }else if (V_Induct_2 == 1) {
+    j_V_Induct_2 = 1;
     
   }else{
   } //Additional
