@@ -49,7 +49,6 @@ void loop() {
   fct();
   if (state == 0){
     digitalWrite(green, HIGH);
-    
     delay(3000);
     digitalWrite(green, LOW);
     state += 1;  
