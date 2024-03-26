@@ -1,7 +1,7 @@
 #include <Arduino.h>
 
 //Lights Set Up
-int red = 13;evfvfe
+int red = 13;
 int yellow = 11;
 int green = 10;
 int white = 12;
