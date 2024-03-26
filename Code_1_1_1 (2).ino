@@ -33,13 +33,14 @@ int dp = 12;
 //Interrupt Vectors
 int V_bu1; // Button Signal Vector (Pin: 22)
 int V_bu2;
-int V_Induct_1;
-int V_Induct_2;
-int V_Induct_3;
-int V_Induct_4;
-int V_Induct_5;
-int V_Induct_6;
-int V_Induct_7; // Red Light Signal Vector (Pin: A4)
+int V_Induct_1A; //A is for straight
+int V_Induct_2A;
+int V_Induct_2B; //B is for left hand turn
+int V_Induct_3A;
+int V_Induct_3B;
+int V_Induct_4A;
+int V_Induct_4B;
+int V_red; // Red Light Signal Vector (Pin: A4)
 
 // Priority Function's Variables
 int i_V_bu1 = 0;
