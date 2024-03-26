@@ -32,7 +32,7 @@ int dp = 12;
 
 //Interrupt Vectors
 int V_bu1; // Button Signal Vector (Pin: 22)
-int V_bu2;
+int V_bu2; 
 int V_Induct_1;
 int V_Induct_2;
 int V_Induct_3;
@@ -207,6 +207,37 @@ void adv_green_1_4(void){
   }
   j_V_Induct_1 = 0;
 }
+
+void adv_green_2(void){
+  if (j_V_Induct_2 == 1){
+  digitalWrite(green2,  LOW);
+  delay(500);
+
+  digitalWrite(green2, HIGH);
+  delay(1000);
+
+  digitalWrite(green2,  LOW);
+  delay(500);
+
+  digitalWrite(green2, HIGH);
+  delay(1000);
+
+  digitalWrite(green2,  LOW);
+
+  delay(500);
+
+  digitalWrite(green2, HIGH);
+  delay(1000);
+
+  digitalWrite(green2,  LOW);
+  delay(500);
+
+  digitalWrite(green2, HIGH);
+  delay(1000);
+  }
+  j_V_Induct_2 = 0;
+}
+
 
 // Master Function
 void fct(void) {
