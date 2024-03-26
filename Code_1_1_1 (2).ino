@@ -258,8 +258,13 @@ void polling(void) {
   V_bu1 = digitalRead();
   V_bu2 = digitalRead();
   Serial.println(V_bu1);
-  V_Induct_1 = analogRead();
-  V_Induct_2 = analogRead();
+  V_Induct_1A = analogRead();
+  V_Induct_2A = analogRead();
+  V_Induct_2B = analogRead();
+  V_Induct_3A = analogRead();
+  V_Induct_3B = analogRead();
+  V_Induct_4A = analogRead();
+  V_Induct_4B = analogRead();
   //Additional
 }
 
@@ -274,11 +279,17 @@ void priority(void) {
   }else if (V_bu2 == 1) {
     i_V_bu2 = 1;
 
-  }else if (V_Induct_1 == 1) {
+  }else if (V_Induct_1A == 1 || V_Induct_4A == 1 ) {
     j_V_Induct_1 = 1;
     
-  }else if (V_Induct_2 == 1) {
-    j_V_Induct_2 = 1;
+  }else if (V_Induct_1B == 1 || V_Induct_4B == 1 ) {
+    j_V_Induct_1 = 1;
+
+  }else if (V_Induct_2A == 1 || V_Induct_3A == 1 ) {
+    j_V_Induct_1 = 1;
+
+  }else if (V_Induct_2B == 1 || V_Induct_3B == 1 ) {
+    j_V_Induct_1 = 1;
     
   }else{
   } //Additional
